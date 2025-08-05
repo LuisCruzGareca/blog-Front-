@@ -1,0 +1,152 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.detalle-post {
+  background: var(--color5);
+  max-width: 800px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.imagen-principal {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.imagen-principal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imagen-principal img:hover {
+  transform: scale(1.05);
+}
+
+.contenido {
+  padding: 30px 40px;
+}
+
+.fecha {
+  color: var(--color2);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 25px;
+  color: var(--color1);
+}
+
+p {
+  margin-bottom: 20px;
+  color: var(--color2);
+  font-size: 1.1rem;
+}
+
+.secciones {
+  margin-bottom: 30px;
+  color: var(--color1);
+}
+
+.secciones ul {
+  margin-left: 25px;
+  color: var(--color2);
+  font-size: 1rem;
+  list-style-type: disc;
+}
+
+.volver {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--color3);
+  color: var(--color1);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.volver:hover {
+  background-color: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(231, 76, 60, 0.4);
+}
+
+/* Responsive */
+
+/* Tablets y móviles grandes */
+@media (max-width: 768px) {
+  .detalle-post {
+    max-width: 90%;
+  }
+  .contenido {
+    padding: 25px 25px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .imagen-principal {
+    height: 280px;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+/* Móviles medianos */
+@media (max-width: 480px) {
+  .detalle-post {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
+  }
+  .imagen-principal {
+    height: 200px;
+  }
+  .contenido {
+    padding: 20px 15px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+  .secciones ul {
+    margin-left: 15px;
+  }
+  .volver {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Móviles pequeños muy estrechos */
+@media (max-width: 320px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+  .fecha {
+    font-size: 0.8rem;
+  }
+  .volver {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+}
