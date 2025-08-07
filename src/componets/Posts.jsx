@@ -3,17 +3,16 @@ import postImg from "../img/imagenpos.jpg";
 import Filters from "./Filters";
 import { Link } from "react-router-dom";
 import ListPosts from "../hook/UseListPost";
-import { useEffect } from "react";
+import { useContext } from "react";
+import { PostContext } from "../context/PostContext";
+import Pagination from "./Pagination";
 
 export default function Posts() {
-  const { posts, handleListPosts } = ListPosts();
-
-  useEffect(() => {
-    handleListPosts();
-  }, []);
+  const { posts, setPage } = useContext(PostContext);
   return (
     <div className="contenidoPosts">
       <Filters />
+      <Pagination />
       {posts.map((post) => {
         return (
           <div className="post" key={post.id}>
@@ -39,6 +38,7 @@ export default function Posts() {
           </div>
         );
       })}
+      <Pagination />
     </div>
   );
 }
