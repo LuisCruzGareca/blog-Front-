@@ -1,6 +1,5 @@
-import Footer from "./Footer";
-import Portada from "./Portada";
-import Posts from "./Posts";
+import Posts from "../componets/Posts";
+import Portada from "../componets/Portada";
 
 export default function Main() {
   return (

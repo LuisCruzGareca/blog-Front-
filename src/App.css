@@ -21,7 +21,7 @@ body {
 }
 
 header {
-  background: rgba(44, 62, 80, 0.5);
+  background: rgba(44, 62, 80, 0.6);
   color: white;
   padding: 18px;
   display: flex;
@@ -36,9 +36,9 @@ header {
   justify-content: space-around;
 }
 
-header:hover {
+/* header:hover {
   background: rgba(44, 62, 80, 0.1);
-}
+} */
 
 header img {
   height: 50px;
@@ -240,19 +240,19 @@ main {
 .btnPage {
   align-self: flex-start;
   text-decoration: none;
-  background-color: var(--color3);
-  color: var(--color2);
+  background-color: #2c3e50;
+
   padding: 12px 25px;
   border-radius: 30px;
   transition: all 0.3s ease;
   font-weight: 500;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border: none;
+  color: white;
 }
 .btnPage:hover {
-  background-color: var(--accent);
+  text-decoration: none;
+  background-color: #3f5368;
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.2);
 }
 footer {
   background: linear-gradient(to right, var(--color1), var(--color2));
@@ -283,6 +283,43 @@ footer {
     z-index: 0;
   }
 } */
+
+.search-form {
+  display: flex;
+  align-items: center;
+  max-width: 400px; /* Para que no sea muy ancho */
+  margin: 0 auto; /* Centrar horizontalmente si quieres */
+  gap: 0;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0px 0px 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+}
+
+.btnSearch {
+  padding: 10px 20px;
+  font-size: 17px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 0px 4px 4px 0px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btnSearch:hover {
+  background-color: #475768;
+}
 
 /* Estilos para pantallas hasta 800px (Tablets) */
 @media screen and (max-width: 800px) {

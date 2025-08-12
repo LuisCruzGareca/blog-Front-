@@ -21,9 +21,7 @@ export default function Filters() {
     setSelectedCategory(event.target.value);
     setPage(1);
   };
-  const ChangeCategoryOrderBy = (event) => {
-    setOrderBy(event.target.value);
-  };
+
   useEffect(() => {
     handleWhithCategoriesPost();
   }, []);
@@ -36,10 +34,14 @@ export default function Filters() {
         })}
       </select>
 
-      <select onChange={ChangeCategoryOrderBy}>
+      <select
+        onChange={(event) => {
+          setOrderBy(event.target.value);
+        }}
+      >
         <option value="">Fecha de creación</option>
-        <option value="recientes">Más recientes</option>
-        <option value="antiguos">Más antiguos</option>
+
+        <option value="createdAt">Más recientes</option>
       </select>
     </div>
   );

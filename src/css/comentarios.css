@@ -1,0 +1,74 @@
+.comentarios-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.comentarios-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.comentario {
+  background: #fff;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  color: #444;
+}
+
+.comentario .autor {
+  font-weight: 600;
+  color: #0077cc;
+  margin-bottom: 6px;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+form input[type="text"] {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+form input[type="text"]:focus {
+  outline: none;
+  border-color: #0077cc;
+}
+
+form button {
+  padding: 10px 24px;
+  background-color: #0077cc;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+form button:hover {
+  background-color: #005fa3;
+}
+.commentComplete {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+.iconsContainer {
+  position: sticky; /* o fixed */
+  top: 10px; /* donde quieras que quede */
+  left: 10px;
+  z-index: 10;
+}

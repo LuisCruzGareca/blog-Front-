@@ -15,8 +15,8 @@ export default function PostProvider({ children }) {
     if (selectedCategory !== null) {
       path += `/${selectedCategory}`;
     }
-    if (orderBy === null) {
-      if (selectedCategory !== null) {
+    if (orderBy !== null) {
+      if (selectedCategory === null) {
         path += "/all";
       }
       path += "/" + orderBy;
@@ -28,7 +28,7 @@ export default function PostProvider({ children }) {
   };
   useEffect(() => {
     getPost();
-  }, [selectedCategory, page]);
+  }, [selectedCategory, page, orderBy]);
   return (
     <PostContext.Provider
       value={{
@@ -37,6 +37,8 @@ export default function PostProvider({ children }) {
         posts,
         totalPages,
         page,
+        setPosts,
+        setTotalPage,
         setOrderBy,
       }}
     >

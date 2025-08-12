@@ -1,4 +1,4 @@
-import { Comment, Like, Share } from "./Icons";
+import { Comments, Like, ShareIcon } from "./Icons";
 import postImg from "../img/imagenpos.jpg";
 import Filters from "./Filters";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import ListPosts from "../hook/UseListPost";
 import { useContext } from "react";
 import { PostContext } from "../context/PostContext";
 import Pagination from "./Pagination";
+import Likes from "./Likes";
 
 export default function Posts() {
   const { posts, setPage } = useContext(PostContext);
@@ -19,14 +20,12 @@ export default function Posts() {
             <div className="post-imagen">
               <img src={postImg} alt="Post" />
               <div className="acciones">
-                <button title="Me gusta">
-                  <Like />
+                <button>
+                  <Likes idPost={post.id} />
                 </button>
-                <button title="Comentar">
-                  <Comment />
-                </button>
+
                 <button title="Compartir">
-                  <Share />
+                  <ShareIcon />
                 </button>
               </div>
             </div>
