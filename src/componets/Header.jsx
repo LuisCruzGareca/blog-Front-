@@ -3,7 +3,7 @@ import { POSTICO, Search, User } from "./Icons";
 import { PostContext } from "../context/PostContext";
 import axios from "axios";
 import Config from "../../config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const { setPosts, setTotalPage } = useContext(PostContext);
@@ -41,7 +41,9 @@ export default function Header() {
         </form>
 
         <button id="searchButton">
-          <User />
+          <Link to="/login">
+            <User />
+          </Link>
         </button>
       </div>
     </header>

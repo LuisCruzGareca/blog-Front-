@@ -1,0 +1,62 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Hace que el footer siempre quede abajo */
+}
+
+.mainForm {
+  flex: 1; /* Ocupa todo el espacio disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainFormDiv {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 380px;
+  flex-direction: column;
+}
+.mainFormDiv form {
+  flex-direction: column;
+}
+.mainForm form input {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+form input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.btnfuncional {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background-color: #357ab8;
+}

@@ -6,10 +6,8 @@ import Main from "./Main";
 export default function Home() {
   return (
     <div>
-      <PostProvider>
-        <Header />
-        <Main />
-      </PostProvider>
+      <Header />
+      <Main />
 
       <Footer />
     </div>
