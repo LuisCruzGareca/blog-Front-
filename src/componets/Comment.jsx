@@ -31,36 +31,38 @@ export default function Comment({ idPost }) {
     hanleGetComentario();
   }, []);
   return (
-    <>
+    <div>
       <a onClick={() => setMostrar(!mostrar)}>
         {mostrar ? <CommentsBacio /> : <Comments />}
       </a>
-      {mostrar && (
-        <div className="comentarios-container">
-          <h2>Comentarios</h2>
-          {comentarios.map((comentario) => (
-            <div key={comentario.id} className="comentario">
-              <p className="autor">👤 {comentario.comment}</p>
-              <EditComment
-                key={comentario.id}
-                comentario={comentario}
-                setComentarios={setComentarios}
-                comentarios={comentarios}
-                postId={idPost}
-              />
-            </div>
-          ))}
+      <div>
+        {mostrar && (
+          <div className="comentarios-container">
+            <h2>Comentarios</h2>
+            {comentarios.map((comentario) => (
+              <div key={comentario.id} className="comentario">
+                <p className="autor">👤 {comentario.comment}</p>
+                <EditComment
+                  key={comentario.id}
+                  comentario={comentario}
+                  setComentarios={setComentarios}
+                  comentarios={comentarios}
+                  postId={idPost}
+                />
+              </div>
+            ))}
 
-          <form onSubmit={handleCreateComentario}>
-            <input
-              type="text"
-              id="txtComentario"
-              placeholder="Escribe tu comentario..."
-            />
-            <button type="submit">Crear</button>
-          </form>
-        </div>
-      )}
-    </>
+            <form onSubmit={handleCreateComentario}>
+              <input
+                type="text"
+                id="txtComentario"
+                placeholder="Escribe tu comentario..."
+              />
+              <button type="submit">Crear</button>
+            </form>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

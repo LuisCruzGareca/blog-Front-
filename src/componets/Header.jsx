@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import { POSTICO, Search, User } from "./Icons";
+import { User } from "./Icons";
 import { PostContext } from "../context/PostContext";
 import axios from "axios";
 import Config from "../../config";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../img/logo.png";
 
 export default function Header() {
   const { setPosts, setTotalPage } = useContext(PostContext);
@@ -21,7 +22,12 @@ export default function Header() {
   };
   return (
     <header>
-      <POSTICO />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img src={logo} alt="Logo" />
+        <span style={{ fontFamily: "fantasy", fontSize: "22px" }}>
+          Blog Online
+        </span>
+      </div>
       <div className="search-container">
         <form action="" className="search-form" onSubmit={handleSubmitForm}>
           <input

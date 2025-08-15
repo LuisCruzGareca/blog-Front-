@@ -4,7 +4,7 @@
   --color3: #ecf0f1; /* Gris muy claro */
   --color4: #f8f9fa; /* Blanco humo */
   --color5: #ffffff; /* Blanco puro */
-  --accent: #e74c3c; /* Color de acento para elementos importantes */
+  --accent: #2c3e50; /* Color de acento para elementos importantes */
 }
 
 * {
@@ -261,9 +261,6 @@ footer {
   text-align: center;
   margin-top: 60px;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
 }
 
 /* Estilos para pantallas grandes (Desktop) */

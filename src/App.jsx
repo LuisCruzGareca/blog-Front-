@@ -11,6 +11,8 @@ import ListUser from "./pages/ListUser";
 import ListCategorias from "./pages/ListCategories";
 import ListPost from "./pages/ListPost";
 import EditCategories from "./pages/EditCategories";
+import EditUser from "./pages/EditUser";
+import EditPost from "./pages/EditPost";
 function App() {
   return (
     <PostProvider>
@@ -32,9 +34,12 @@ function App() {
 
             {/* paginas admin */}
             <Route path="/user" element={<ListUser />} />
+            <Route path="/edit/user/:id" element={<EditUser />} />
+
             <Route path="/edit/categories/:id" element={<EditCategories />} />
             <Route path="/categories" element={<ListCategorias />} />
             <Route path="/posts" element={<ListPost />} />
+            <Route path="/edit/posts/:id" element={<EditPost />} />
           </Routes>
         </BrowserRouter>
       </UserProvider>

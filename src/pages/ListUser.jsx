@@ -5,6 +5,7 @@ import Config from "../../config";
 import { useEffect } from "react";
 import useListUser from "../hook/useListUser";
 import { DeleteIcon, EditIcon } from "../componets/Icons";
+import { Link } from "react-router-dom";
 export default function ListUser() {
   const { user, handleGetuser } = useListUser();
 
@@ -39,9 +40,9 @@ export default function ListUser() {
                       <button onClick={() => handleDeleteUser(user.id)}>
                         <DeleteIcon />
                       </button>
-                      <button>
+                      <Link to={`/edit/user/${user.id}`}>
                         <EditIcon />
-                      </button>
+                      </Link>
                     </td>
                   </tr>
                 );

@@ -5,6 +5,7 @@ import MenuAdmin from "../componets/MenuAdmin";
 import "../css/MenuAdmin.css";
 import UseListPosts from "../hook/UseListPost";
 import { DeleteIcon, EditIcon } from "../componets/Icons";
+import { Link } from "react-router-dom";
 export default function ListPost() {
   const { posts, handleListPosts } = UseListPosts();
 
@@ -15,7 +16,7 @@ export default function ListPost() {
   };
   useEffect(() => {
     handleListPosts();
-  }, []);
+  }, [posts]);
   return (
     <div className="contenedorPrincipal">
       <MenuAdmin />
@@ -41,9 +42,9 @@ export default function ListPost() {
                       <button onClick={() => handleDeletePost(post.id)}>
                         <DeleteIcon />
                       </button>
-                      <button>
+                      <Link to={`/edit/posts/${post.id}`}>
                         <EditIcon />
-                      </button>
+                      </Link>
                     </td>
                   </tr>
                 );

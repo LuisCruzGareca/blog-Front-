@@ -4,54 +4,47 @@ import "../css/MenuAdmin.css";
 import axios from "axios";
 import Config from "../../config";
 import { useNavigate, useParams } from "react-router-dom";
-export default function EditCategories() {
+export default function EditUser() {
   const navigate = useNavigate();
   const idUser = useParams().id;
-  const [categories, setCategories] = useState({
-    name: "",
+  const [user, setUser] = useState({
+    email: "",
   });
   useEffect(() => {
-    axios
-      .get(Config.BACKEND_URL + `categories/list/${idUser}`)
-      .then((response) => {
-        setCategories(response.data);
-      });
+    axios.get(Config.BACKEND_URL + `user/list/${idUser}`).then((response) => {
+      setUser(response.data);
+    });
   }, [idUser]);
   const handleInput = (event) => {
-    setCategories({ ...categories, name: event.target.value });
+    setUser({ ...user, email: event.target.value });
   };
   const handleEditCategory = (event) => {
     event.preventDefault();
     axios
-      .patch(Config.BACKEND_URL + "categories/edit/" + idUser, {
-        name: categories.name,
+      .patch(Config.BACKEND_URL + "user/edit/" + idUser, {
+        email: user.email,
       })
       .then((response) => {
-        navigate("/categories");
+        navigate("/user");
       });
   };
-
+  console.log(user);
   return (
     <div className="contenedorPrincipal">
       <MenuAdmin />
       <main className="panel">
         <div className="form-container">
           <form onSubmit={handleEditCategory}>
-            <h2>Editar Categoria</h2>
+            <h2>Editar User</h2>
             <input
               type="text"
-              id="name"
-              value={categories.name}
+              id="email"
+              value={user.email}
               //   onBlur={handleName}
               onChange={handleInput}
             />
 
             <button type="submit">Editar</button>
-            <p>
-              {/* {error.map((e, index) => {
-                return <label key={index}>{e}</label>;
-              })} */}
-            </p>
           </form>
         </div>
       </main>
