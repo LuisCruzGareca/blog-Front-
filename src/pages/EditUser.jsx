@@ -4,6 +4,7 @@ import "../css/MenuAdmin.css";
 import axios from "axios";
 import Config from "../../config";
 import { useNavigate, useParams } from "react-router-dom";
+import api from "../interceptor/interceptor";
 export default function EditUser() {
   const navigate = useNavigate();
   const idUser = useParams().id;
@@ -11,7 +12,7 @@ export default function EditUser() {
     email: "",
   });
   useEffect(() => {
-    axios.get(Config.BACKEND_URL + `user/list/${idUser}`).then((response) => {
+    api.get(Config.BACKEND_URL + `user/list/${idUser}`).then((response) => {
       setUser(response.data);
     });
   }, [idUser]);
@@ -20,7 +21,7 @@ export default function EditUser() {
   };
   const handleEditCategory = (event) => {
     event.preventDefault();
-    axios
+    api
       .patch(Config.BACKEND_URL + "user/edit/" + idUser, {
         email: user.email,
       })
@@ -28,7 +29,6 @@ export default function EditUser() {
         navigate("/user");
       });
   };
-  console.log(user);
   return (
     <div className="contenedorPrincipal">
       <MenuAdmin />

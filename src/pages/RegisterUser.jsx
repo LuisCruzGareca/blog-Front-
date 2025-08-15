@@ -1,15 +1,15 @@
-import axios from "axios";
 import Header from "../componets/Header";
 import Config from "../../config";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import api from "../interceptor/interceptor";
 
 export default function RegisterUser() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
+    api
       .post(Config.BACKEND_URL + "user/create", {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,

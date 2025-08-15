@@ -4,6 +4,7 @@ import "../css/MenuAdmin.css";
 import axios from "axios";
 import Config from "../../config";
 import { useNavigate, useParams } from "react-router-dom";
+import api from "../interceptor/interceptor";
 export default function EditCategories() {
   const navigate = useNavigate();
   const idUser = useParams().id;
@@ -11,7 +12,7 @@ export default function EditCategories() {
     name: "",
   });
   useEffect(() => {
-    axios
+    api
       .get(Config.BACKEND_URL + `categories/list/${idUser}`)
       .then((response) => {
         setCategories(response.data);
@@ -22,7 +23,7 @@ export default function EditCategories() {
   };
   const handleEditCategory = (event) => {
     event.preventDefault();
-    axios
+    api
       .patch(Config.BACKEND_URL + "categories/edit/" + idUser, {
         name: categories.name,
       })

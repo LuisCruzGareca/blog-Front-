@@ -6,14 +6,16 @@ import { useContext, useState } from "react";
 import Footer from "../componets/Footer";
 import "../css/login.css";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../interceptor/interceptor";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
   const [error, setError] = useState("");
   const handleSubmitAuth = (e) => {
     e.preventDefault();
 
-    axios
+    api
       .post(Config.BACKEND_URL + "auth/login", {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value,
@@ -21,7 +23,8 @@ export default function Login() {
       .then((response) => {
         const token = response.data.access_token;
         localStorage.setItem("token", token); // Guarda el JWT
-        // localStorage.removeItem("token");
+        localStorage.setItem("user", JSON.stringify(response.data.user)); // Guarda el usuario
+        setUser(response.data.user);
 
         navigate("/"); // redirige al home
       })

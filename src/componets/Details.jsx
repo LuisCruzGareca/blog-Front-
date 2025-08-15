@@ -1,7 +1,6 @@
 import "../css/detail.css";
 import "../css/comentarios.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Config from "../../config";
 import { useParams } from "react-router-dom";
 import Comment from "./Comment";
@@ -10,12 +9,13 @@ import Footer from "./Footer";
 import PostProvider from "../context/PostContext";
 import Likes from "./Likes";
 import Share from "./Share";
+import api from "../interceptor/interceptor";
 export default function Details() {
   const idPost = useParams().id;
   const [postOne, setPostOne] = useState([]);
 
   const handleOnePost = () => {
-    axios.get(Config.BACKEND_URL + `posts/list/${idPost}`).then((response) => {
+    api.get(Config.BACKEND_URL + `posts/list/${idPost}`).then((response) => {
       setPostOne(response.data);
     });
   };

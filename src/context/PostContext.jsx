@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import Config from "../../config";
-
+import api from "../interceptor/interceptor";
 export const PostContext = createContext();
 
 export default function PostProvider({ children }) {
@@ -21,7 +21,7 @@ export default function PostProvider({ children }) {
       }
       path += "/" + orderBy;
     }
-    axios.get(Config.BACKEND_URL + path).then((res) => {
+    api.get(Config.BACKEND_URL + path).then((res) => {
       setPosts(res.data.posts);
       setTotalPage(res.data.totalPages);
     });

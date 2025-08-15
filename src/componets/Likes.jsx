@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Like, LikeBacio } from "./Icons";
-import axios from "axios";
 import Config from "../../config";
+import api from "../interceptor/interceptor";
 
 export default function Likes({ idPost }) {
   const userId = 1;
@@ -9,13 +9,13 @@ export default function Likes({ idPost }) {
   const [likedCount, setLikedCount] = useState(0);
 
   const getCountLikes = () => {
-    axios.get(Config.BACKEND_URL + "likes/" + Number(idPost)).then((res) => {
+    api.get(Config.BACKEND_URL + "likes/" + Number(idPost)).then((res) => {
       setLikedCount(res.data);
     });
   };
 
   const checkUserLike = () => {
-    axios
+    api
       .get(`${Config.BACKEND_URL}likes/${idPost}/user/${userId}`)
       .then((res) => {
         setUserLiked(res.data.likedByUser);
@@ -27,7 +27,7 @@ export default function Likes({ idPost }) {
     checkUserLike();
   }, [idPost, userId]);
   const toggleLike = () => {
-    axios
+    api
       .post(Config.BACKEND_URL + "likes", { userId, postId: Number(idPost) })
       .then((resp) => {
         if (resp.data.message === "Like agregado") {

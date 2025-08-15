@@ -1,6 +1,6 @@
-import axios from "axios";
 import Config from "../../config";
 import { useState } from "react";
+import api from "../interceptor/interceptor";
 
 export default function EditComment({
   comentario,
@@ -11,7 +11,7 @@ export default function EditComment({
   const [mostrarEdit, setMostrarEdit] = useState(false);
 
   const handleDeleteComentario = () => {
-    axios
+    api
       .delete(Config.BACKEND_URL + `comment/delete/${comentario.id}`)
       .then((response) => {
         setComentarios(comentarios.filter((c) => c.id !== comentario.id));
@@ -20,7 +20,7 @@ export default function EditComment({
   };
 
   const handleEditComment = () => {
-    axios
+    api
       .patch(Config.BACKEND_URL + `comment/update/${comentario.id}`, {
         comment: document.getElementById(`txtEdit`).value,
         postId: postId,

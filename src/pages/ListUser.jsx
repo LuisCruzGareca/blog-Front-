@@ -6,11 +6,12 @@ import { useEffect } from "react";
 import useListUser from "../hook/useListUser";
 import { DeleteIcon, EditIcon } from "../componets/Icons";
 import { Link } from "react-router-dom";
+import api from "../interceptor/interceptor";
 export default function ListUser() {
   const { user, handleGetuser } = useListUser();
 
   const handleDeleteUser = (id) => {
-    axios.delete(`${Config.BACKEND_URL}user/${id}`).then(() => {
+    api.delete(`${Config.BACKEND_URL}user/${id}`).then(() => {
       handleGetuser();
     });
   };

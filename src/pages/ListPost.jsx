@@ -1,16 +1,16 @@
-import axios from "axios";
 import { useEffect } from "react";
 import Config from "../../config";
 import MenuAdmin from "../componets/MenuAdmin";
 import "../css/MenuAdmin.css";
-import UseListPosts from "../hook/UseListPost";
+import UseListPosts from "../hook/useListPost";
 import { DeleteIcon, EditIcon } from "../componets/Icons";
 import { Link } from "react-router-dom";
+import api from "../interceptor/interceptor";
 export default function ListPost() {
   const { posts, handleListPosts } = UseListPosts();
 
   const handleDeletePost = (id) => {
-    axios.delete(`${Config.BACKEND_URL}posts/${id}`).then(() => {
+    api.delete(`${Config.BACKEND_URL}posts/${id}`).then(() => {
       handleListPosts();
     });
   };

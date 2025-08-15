@@ -6,13 +6,12 @@ import "../css/MenuAdmin.css";
 import useListCategories from "../hook/useListCategories";
 import { DeleteIcon, EditIcon } from "../componets/Icons";
 import { Link } from "react-router-dom";
+import api from "../interceptor/interceptor";
 export default function ListCategorias() {
   const { categories, handleGetCategories } = useListCategories();
 
   const handleDeleteCategory = (id) => {
-    axios.delete(`${Config.BACKEND_URL}categories/delete/${id}`).then(() => {
-      console.log("eliminado");
-    });
+    api.delete(`${Config.BACKEND_URL}categories/delete/${id}`).then(() => {});
   };
   useEffect(() => {
     handleGetCategories();

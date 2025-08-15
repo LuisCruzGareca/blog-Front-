@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import MenuAdmin from "../componets/MenuAdmin";
 import "../css/MenuAdmin.css";
-import axios from "axios";
 import Config from "../../config";
 import { useNavigate, useParams } from "react-router-dom";
+import api from "../interceptor/interceptor";
 export default function EditPost() {
   const navigate = useNavigate();
   const idPost = useParams().id;
@@ -12,7 +12,7 @@ export default function EditPost() {
     content: "",
   });
   useEffect(() => {
-    axios.get(Config.BACKEND_URL + `posts/list/${idPost}`).then((response) => {
+    api.get(Config.BACKEND_URL + `posts/list/${idPost}`).then((response) => {
       setPost(response.data);
     });
   }, [idPost]);
@@ -24,7 +24,7 @@ export default function EditPost() {
   };
   const handleEditCategory = (event) => {
     event.preventDefault();
-    axios
+    api
       .patch(Config.BACKEND_URL + "posts/edit/" + idPost, {
         title: post.title,
         content: post.content,
@@ -33,7 +33,6 @@ export default function EditPost() {
         navigate("/posts");
       });
   };
-  console.log(idPost);
   return (
     <div className="contenedorPrincipal">
       <MenuAdmin />

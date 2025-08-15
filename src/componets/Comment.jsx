@@ -1,15 +1,15 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Config from "../../config";
 import { Comments, CommentsBacio } from "./Icons";
 import EditComment from "../pages/EditComents";
+import api from "../interceptor/interceptor";
 
 export default function Comment({ idPost }) {
   const userID = 1;
   const [comentarios, setComentarios] = useState([]);
   const [mostrar, setMostrar] = useState(false);
   const hanleGetComentario = () => {
-    axios.get(Config.BACKEND_URL + `comment/list`).then((response) => {
+    api.get(Config.BACKEND_URL + `comment/list`).then((response) => {
       setComentarios(response.data);
     });
   };
@@ -17,7 +17,7 @@ export default function Comment({ idPost }) {
   const handleCreateComentario = (event) => {
     event.preventDefault();
 
-    axios
+    api
       .post(Config.BACKEND_URL + `comment/create`, {
         comment: document.getElementById("txtComentario").value,
         postId: idPost,

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Config from "../../config";
-import axios from "axios";
+import api from "../interceptor/interceptor";
 
 export default function UseListPosts() {
   const [posts, setPosts] = useState([]);
 
   const handleListPosts = () => {
-    axios.get(Config.BACKEND_URL + "posts/list").then((response) => {
+    api.get(Config.BACKEND_URL + "posts/list").then((response) => {
       setPosts(response.data);
     });
   };
