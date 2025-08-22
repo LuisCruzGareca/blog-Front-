@@ -13,23 +13,32 @@ import ListPost from "./pages/ListPost";
 import EditCategories from "./pages/EditCategories";
 import EditUser from "./pages/EditUser";
 import EditPost from "./pages/EditPost";
+import CreatePost from "./pages/CreatePost";
+import CreatePhoto from "./pages/CreatePhoto";
 function App() {
   return (
     <PostProvider>
       <UserProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<Home />} />
+
             <Route
-              path="/"
+              path="/detail/:id"
               element={
                 <PrivateRouter>
-                  <Home />
+                  <Details />
                 </PrivateRouter>
               }
             />
-
-            <Route path="/detail/:id" element={<Details />} />
-            <Route path="/register/user" element={<RegisterUser />} />
+            <Route
+              path="/register/user"
+              element={
+                <PrivateRouter>
+                  <RegisterUser />
+                </PrivateRouter>
+              }
+            />
             <Route path="/login" element={<Login />} />
 
             {/* paginas admin */}
@@ -38,8 +47,12 @@ function App() {
 
             <Route path="/edit/categories/:id" element={<EditCategories />} />
             <Route path="/categories" element={<ListCategorias />} />
+
             <Route path="/posts" element={<ListPost />} />
+            <Route path="/create/posts" element={<CreatePost />} />
             <Route path="/edit/posts/:id" element={<EditPost />} />
+
+            <Route path="/photo" element={<CreatePhoto />} />
           </Routes>
         </BrowserRouter>
       </UserProvider>

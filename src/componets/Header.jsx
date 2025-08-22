@@ -51,8 +51,11 @@ export default function Header() {
 
         <button id="searchButton">
           {user ? (
-            <Link to="/">
-              <p>{user.name}</p>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <User />
+                <h3 style={{ color: "white" }}>{user.name}</h3>
+              </div>
             </Link>
           ) : (
             <Link to="/login">

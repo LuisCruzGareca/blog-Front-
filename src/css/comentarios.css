@@ -64,7 +64,7 @@ form button:hover {
 .commentComplete {
   display: flex;
   justify-content: space-around;
-  height: 184px;
+  margin-bottom: 10px;
 }
 .iconsContainer {
   position: sticky; /* o fixed */

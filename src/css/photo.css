@@ -1,0 +1,11 @@
+.columns {
+  columns: 2; /* Divide en 2 columnas */
+  column-gap: 20px; /* Espacio entre columnas */
+  list-style: none;
+}
+.photo-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+}

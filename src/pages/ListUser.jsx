@@ -1,4 +1,3 @@
-import axios from "axios";
 import MenuAdmin from "../componets/MenuAdmin";
 import "../css/MenuAdmin.css";
 import Config from "../../config";

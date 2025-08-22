@@ -21,6 +21,9 @@ export default function ListPost() {
     <div className="contenedorPrincipal">
       <MenuAdmin />
       <main className="panel">
+        <Link to="/create/posts " className="button">
+          Create Products
+        </Link>
         <div className="contenido">
           <table>
             <thead>
@@ -40,7 +43,7 @@ export default function ListPost() {
                     <td>{post.content}</td>
                     <td>
                       <button onClick={() => handleDeletePost(post.id)}>
-                        <DeleteIcon />
+                        {/* <DeleteIcon /> */}
                       </button>
                       <Link to={`/edit/posts/${post.id}`}>
                         <EditIcon />

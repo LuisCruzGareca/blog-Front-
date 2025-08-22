@@ -22,7 +22,7 @@ export default function EditPost() {
   const handleInputContent = (event) => {
     setPost({ ...post, content: event.target.value });
   };
-  const handleEditCategory = (event) => {
+  const handleEditPost = (event) => {
     event.preventDefault();
     api
       .patch(Config.BACKEND_URL + "posts/edit/" + idPost, {
@@ -38,7 +38,7 @@ export default function EditPost() {
       <MenuAdmin />
       <main className="panel">
         <div className="form-container">
-          <form onSubmit={handleEditCategory}>
+          <form onSubmit={handleEditPost}>
             <h2>Editar User</h2>
             <input
               type="text"

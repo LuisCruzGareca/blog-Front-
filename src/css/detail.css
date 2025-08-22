@@ -5,7 +5,7 @@
 }
 .detalle-post {
   background: var(--color5);
-  max-width: 800px;
+  max-width: 600px;
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
@@ -16,7 +16,7 @@
 
 .imagen-principal {
   width: 100%;
-  height: 350px;
+  height: 250px;
   overflow: hidden;
 }
 
@@ -32,25 +32,18 @@
 } */
 
 .contenido {
-  padding: 30px 40px;
+  padding: 0px 33px 20px;
 }
 
 .fecha {
   color: var(--color2);
-  font-size: 0.9rem;
-  margin-bottom: 15px;
+  font-size: 10px;
 }
 
 h1 {
-  font-size: 2.4rem;
-  margin-bottom: 25px;
-  color: var(--color1);
 }
 
 p {
-  margin-bottom: 20px;
-  color: var(--color2);
-  font-size: 1.1rem;
 }
 
 .secciones {
@@ -70,7 +63,7 @@ p {
   padding: 12px 28px;
   background-color: var(--color3);
   color: var(--color1);
-  border-radius: 30px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;

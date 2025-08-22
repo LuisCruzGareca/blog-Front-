@@ -1,4 +1,3 @@
-import axios from "axios";
 import Header from "../componets/Header";
 import Config from "../../config";
 import { UserContext } from "../context/UserContext";
@@ -10,6 +9,7 @@ import api from "../interceptor/interceptor";
 
 export default function Login() {
   const navigate = useNavigate();
+
   const { setUser } = useContext(UserContext);
   const [error, setError] = useState("");
   const handleSubmitAuth = (e) => {

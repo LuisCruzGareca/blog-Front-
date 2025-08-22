@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Config from "../../config";
 import MenuAdmin from "../componets/MenuAdmin";
 import "../css/MenuAdmin.css";

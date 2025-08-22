@@ -1,34 +1,32 @@
-import axios from "axios";
+import axios, { AxiosHeaders } from "axios";
 import Config from "../../config";
 
-// Crear instancia de Axios (opcional, puedes usar axios directamente)
 const api = axios.create({
-  baseURL: Config.BACKEND_URL, // tu backend
+  baseURL: Config.BACKEND_URL,
 });
 
-// Interceptor que se ejecuta antes de cada petición
-api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("token"); // tu JWT
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const headers = new AxiosHeaders(config.headers);
+    headers.set("Authorization", `Bearer ${token}`);
+    config.headers = headers;
   }
-);
+  return config;
+});
 
 api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      // Token expirado o no válido
-      localStorage.removeItem("access_token");
-      window.location.href = "/login"; // redirige al login
+  (res) => res,
+  (err) => {
+    if (err.config.url?.includes("auth/login")) {
+      // No borrar token al hacer login
+      return Promise.reject(err);
     }
-    return Promise.reject(error);
+    if (err.response?.status === 401) {
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+    }
+    return Promise.reject(err);
   }
 );
 

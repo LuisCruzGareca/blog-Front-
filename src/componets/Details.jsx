@@ -34,11 +34,6 @@ export default function Details() {
       <div className="container">
         <div className="detalle-post">
           <div className="imagen-principal">
-            <div style={{ position: "absolute" }}>
-              <a onClick={volverAtras} className="volver">
-                o
-              </a>
-            </div>
             <img
               src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
               alt="Imagen del post"
@@ -56,6 +51,17 @@ export default function Details() {
             <Share idPost={idPost} />
           </div>
         </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "20px",
+        }}
+      >
+        <a onClick={volverAtras} className="volver">
+          Volver
+        </a>
       </div>
       <Footer />
     </>

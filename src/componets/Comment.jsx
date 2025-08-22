@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Config from "../../config";
 import { Comments, CommentsBacio } from "./Icons";
 import EditComment from "../pages/EditComents";
 import api from "../interceptor/interceptor";
+import { UserContext } from "../context/UserContext";
 
 export default function Comment({ idPost }) {
-  const userID = 1;
+  const { user } = useContext(UserContext);
   const [comentarios, setComentarios] = useState([]);
   const [mostrar, setMostrar] = useState(false);
   const hanleGetComentario = () => {
@@ -21,12 +22,13 @@ export default function Comment({ idPost }) {
       .post(Config.BACKEND_URL + `comment/create`, {
         comment: document.getElementById("txtComentario").value,
         postId: idPost,
-        authorId: userID,
+        authorId: user.id,
       })
       .then((response) => {
         setComentarios([...comentarios, response.data]);
       });
   };
+
   useEffect(() => {
     hanleGetComentario();
   }, []);

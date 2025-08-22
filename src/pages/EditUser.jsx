@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import MenuAdmin from "../componets/MenuAdmin";
 import "../css/MenuAdmin.css";
-import axios from "axios";
 import Config from "../../config";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../interceptor/interceptor";
